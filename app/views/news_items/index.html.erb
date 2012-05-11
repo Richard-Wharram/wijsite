@@ -1,0 +1,132 @@
+<% provide(:title, 'News | ') %>
+
+<style>
+
+/* I need to tidy all this crappy CSS up ! */
+.fade-text-container
+{
+  color: #000;
+  background-color: #fff;
+  border-radius: 0em;
+  padding: 0em;
+}
+
+.fade-text-container,
+.text-container 
+{
+  line-height: 1.5em;
+  /*width: 320px;*/
+  /* 10 lines => 1.5em * 10 = 15em ***/
+  height: 3em;
+  overflow: hidden;
+}
+
+.fadeout 
+{
+  position: relative;
+  height: 20px;
+  top: -20px;
+  background: -webkit-linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+    );
+  background: -moz-linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+    );
+  background: linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+    );
+  z-index: 1;
+}
+
+.newsview
+{ 
+    overflow:hidden; 
+} 
+.slide
+{ 
+    text-align: right; 
+} 
+
+</style>
+
+<script type="text/javascript">
+
+// When the DOM is ready, loop through every element with a newsview class and if its height is greater
+// than 82 then reduce it to 52. Otherwise hide the more/less button as it won't be needed.
+$(document).ready(function()
+{
+	var all = document.getElementsByTagName("*"); 
+ 
+	for (var i=0, max=all.length; i < max; i++)
+	{
+		if (all[i].className == "newsview")
+		{
+			var elemId = all[i].id;
+			$("#" + elemId + "").data('body_height', all[i].offsetHeight); 
+			if (all[i].offsetHeight > 82)
+			{
+				var idNum = elemId.replace("newsview-", "");
+				toggleAndSlide(idNum, 0);
+			}
+			else
+			{
+				var slideId = elemId.replace("newsview-", "slide-");
+				var slider = document.getElementById(slideId);
+				slider.style.visibility = 'hidden';
+			}
+		}
+	} 
+});
+      
+// Finds the elem with an id of newsview-n (where n matches the id passed into this function)
+// and toggles expanding and contracting them elem.
+function toggleAndSlide(elemId, duration) 
+{
+	var slideId = "newsview-" + elemId;
+	var slider = document.getElementById(slideId);
+	var tmp = $("#" + slideId + "").innerHeight();
+	if (slider.offsetHeight > 82)
+	{
+		$("#" + slideId + "").animate({
+		  height: '52px'
+		}, duration);
+	}
+	else
+	{
+		$("#" + slideId + "").animate({
+		  height: $("#" + slideId + "").data('body_height') 
+		}, duration);
+	}
+	
+	return false;
+}
+</script>
+
+<h1>The latest news</h1>
+<h3><%= link_to 'Home', root_path %> >> <%= link_to 'Latest news', news_items_path %></h3>
+
+<% @news_items.each do |news_item| %>
+	<span style="text-decoration: none" >
+		<div class="news_item_container" id="news-item-container-<%= news_item.id %>" style="cursor: pointer;" value="<%= news_item.title %>" onclick="location.href='/news_items/<%= news_item.id %>-<%= news_item.title.parameterize %>'">
+			<h2> <%= news_item.title %> </h2>
+			<h5> By: <%= news_item.author %> | Created: <%= news_item.timestamp %></h5>
+			<div class="newsview" id="newsview-<%= news_item.id %>"><%= news_item.content.gsub(/\n/, '<br/>').html_safe %></div>
+		</div>
+	</span>
+	
+	<div class="options-container">
+        <ul class="options">
+			<li class="slide" id="slide-<%= news_item.id %>" style="cursor: pointer;" onclick="toggleAndSlide('<%= news_item.id %>', 700)">Show/Hide</li>
+			<li><%= link_to 'Show', news_item %></li>
+			<li><%= link_to 'Edit', edit_news_item_path(news_item) %></li>
+			<li><%= link_to 'Destroy', news_item, confirm: 'Are you sure?', method: :delete %></li>
+		</ul>
+	</div>
+<% end %>
+
+<br />
+
+<%= link_to 'New News item', new_news_item_path %>

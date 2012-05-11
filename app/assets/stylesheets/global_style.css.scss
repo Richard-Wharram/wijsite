@@ -1,0 +1,538 @@
+body
+{
+    /* background: #ffffff;  for non-css3 browsers */
+	background: #ddd url(/assets/bg.png) repeat;
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#880000', endColorstr='#ff383a'); /* for IE */
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#880000), to(#ff383a)); /* for webkit browsers */
+    /*background: -moz-linear-gradient(top,  #880000,  #ff383a); /* for firefox 3.6+ */ 
+    /*background-repeat:no-repeat;*/
+    font-size: .75em;
+    font-family: 'Ubuntu',
+				 Verdana,
+                 "Verdana Ref",
+                 "Lucida Grande",
+                 "Lucida Sans Unicode",
+                 FreeSans,
+                 sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+}
+
+/* THE HEADER */
+.cycheader
+{
+	height: 120px;
+	margin: 5px 0;
+	padding: 7px;
+	background: #ffffff;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#880000', endColorstr='#ff383a'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#880000), to(#ff383a)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #880000,  #ff383a); /* for firefox 3.6+ */ 
+    background-repeat:no-repeat;
+	-moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    border-radius: 7px;
+}
+.cycheader p
+{
+	font-size: 1em;
+	color: #ffffff;
+}
+.cycheader p, ul
+{
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #000;
+    font-family: 'Ubuntu',
+				 Verdana,
+                 "Verdana Ref",
+                 "Lucida Grande",
+                 "Lucida Sans Unicode",
+                 FreeSans,
+                 sans-serif;
+}
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+h2
+{
+    padding: 0 0 10px 0;
+}
+h3
+{
+    font-size: 1.2em;
+}
+h4
+{
+    font-size: 1.1em;
+}
+h5
+{
+    font-size: 1em;
+}
+h6
+{
+    font-size: 1em;
+    font-style: italic;
+    font-weight:lighter
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+.page
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#header
+{
+    position: relative;
+    margin-bottom: 0px;
+    color: #000;
+    padding: 0;
+}
+
+#header h1
+{
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    margin-left: 20px;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-family: 'Ubuntu',
+				 Verdana,
+                 "Verdana Ref",
+                 "Lucida Grande",
+                 "Lucida Sans Unicode",
+                 FreeSans,
+                 sans-serif;
+    font-size: 32px !important;
+}
+
+
+#body
+{
+    /* background-color: #ffffff; */
+    /*margin-bottom: 30px;*/
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+}
+
+#wrap
+{
+    width: 1200px;
+    margin: 0 auto;
+    /* background:#ffffff; */
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+}
+
+#main
+{
+    width: 874px;
+    background-color: #ffffff;
+    margin-top: 10px;
+	margin-right: 10px;
+    padding: 5px;
+    float: left;
+	-moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -khtml-border-radius: 7px;
+	border: 3px solid #c3c4eb;
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+}
+
+#sidebar
+{
+    width: 290px;
+    background-color: #eeeeee;
+    margin-top: 10px;
+    padding: 5px;
+    float: right;
+	-moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f9f9f9'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#f9f9f9)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #eeeeee,  #f9f9f9); /* for firefox 3.6+ */ 
+}
+
+#footer
+{
+    clear:both;
+    color: #999;
+    text-align: center;
+    line-height: normal;
+    margin: 0;
+    font-size: .9em;
+}
+
+.home-block
+{
+	height: 160px;
+	width: 267px;
+	margin: 5px 0;
+	padding: 7px;
+	background: #eee;
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#880000', endColorstr='#ff383a'); /* for IE */
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#880000), to(#ff383a)); /* for webkit browsers */
+    /*background: -moz-linear-gradient(top,  #880000,  #ff383a); /* for firefox 3.6+ */ 
+    /*background-repeat:no-repeat;*/
+	/*moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    border-radius: 7px;*/
+}
+
+.home-block:hover
+{
+    background-color: #beb;
+	cursor: pointer;
+}
+
+.home-table
+{
+	border-style: hidden;
+}
+
+
+/* TAB MENU   
+---------------------------------------------------------- */
+ul#menu
+{
+    border-bottom: 1px #ffffff solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 10px;
+    text-align: right;
+}
+
+ul#menu li
+{
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #ffffff;
+    color: #034af3;
+	font-size: 1.1em;
+	-moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    /*border-radius: 7px;*/
+}
+
+ul#menu li a:hover
+{
+    background-color: #bbbbbb;
+    text-decoration: none;
+}
+
+ul#menu li a:active
+{
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a
+{
+    background-color: #fff;
+    color: #000;
+}
+
+/* NEWS ITEMS OPTIONS   
+---------------------------------------------------------- */
+.options-container
+{
+
+}
+
+.options
+{
+    padding: 5px;
+    position: relative;
+    margin: 10px;
+    text-align: right;
+}
+
+
+.options li
+{
+    display: inline;
+    list-style: none;
+}
+
+.options li a
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #ffffff;
+    color: #034af3;
+	font-size: 1.1em;
+	-moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    /*border-radius: 7px;*/
+}
+
+.options li a:hover
+{
+    background-color: #bbbbbb;
+    text-decoration: none;
+}
+
+.options li a:active
+{
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+.options li.selected a
+{
+    background-color: #fff;
+    color: #000;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset 
+{
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px solid #CCC;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input[type="text"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+input[type="password"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table 
+{
+  border: solid 1px #e8eef4;
+  border-collapse: collapse;
+}
+
+table td 
+{
+  padding: 5px;   
+  border: solid 1px #e8eef4;
+}
+
+table th
+{
+  padding: 6px 5px;
+  text-align: left;
+  background-color: #e8eef4; 
+  border: solid 1px #e8eef4;   
+}
+
+/* FANCY CLICKABLE NEWS ITEMS */
+.news_item_container
+{
+    text-decoration: none !important;
+	border-top: solid 1px #e8eef4;
+	/*padding: 6px 5px;*/
+	text-align: left;
+	width: 100%;
+}
+.news_item_container:hover
+{
+    background-color: #eee;
+    text-decoration: none;
+}
+.news_item_container:active
+{
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+.news_item_container > a
+{
+    text-decoration: none !important;
+	/*display: inline-block;*/
+	height: 100%;
+	width: 100%;
+}
+.news_view
+{
+    text-decoration: none !important;
+}
+.news_view > a
+{
+    text-decoration: none !important;
+}
+.news_view > p
+{
+    text-decoration: none !important;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear
+{
+    clear: both;
+}
+
+.error
+{
+    color:Red;
+}
+
+#menucontainer
+{
+    margin-top:40px;
+}
+
+div#title
+{
+    display:block;
+    float:left;
+    text-align:left;
+}
+
+
+#logindisplay
+{
+    font-size:1.1em;
+    display:block;
+    text-align:right;
+    margin:10px;
+    color:White;
+}
+/*
+#logindisplay a:link
+{
+    color: white;
+    text-decoration: underline;
+}
+#logindisplay a:visited
+{
+    color: white;
+    text-decoration: underline;
+}
+#logindisplay a:hover
+{
+    color: white;
+    text-decoration: none;
+}
+*/
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+/*
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+*/
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label,
+.editor-label,
+.display-field,
+.editor-field
+{
+    margin: 0.5em 0;
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+
+.tweetdiv
+{
+	cursor: pointer;
+}
+.tweetdiv:hover
+{
+	background: #d8d8d8
+}

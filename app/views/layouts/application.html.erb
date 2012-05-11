@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+	<title><%= yield(:title) %>World of Wijcraft</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+    <div id="wrap">
+        <div class="page">
+
+            <div id="header" class="cycheader">
+                <div id="title">
+                    <h1>The World of Wijcraft</h1>
+                </div>
+              
+                <div id="logindisplay">
+					<p>Logon</p>
+                </div> 
+            
+                <div id="menucontainer">
+                    <ul id="menu">
+                        <li><%= link_to "Home", root_path %></li>
+                        <li><%= link_to "My Blog", posts_path %></li>
+                        <li><%= link_to "Latest News", news_items_path %></li>
+                        <li><%= link_to "Alculator", '/alculator' %></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+				<%= yield %>
+            </div>
+            <div id="sidebar">
+                <asp:ContentPlaceHolder ID="SidebarContent" runat="server" />
+				
+				<!-- Dodgy code put into the view, just for testing... -->
+				<!-- Although using the Rails cache is quite nice. -->
+				<% 
+					require "rubygems"
+					require "twitter"
+					require 'rails_rinku'
+					
+					#Cache the latest 3 tweets for WijTweet and CityofYork if not already in cache
+					wij_latest_tweets = Rails.cache.read "wij_latest_tweets"
+					if !wij_latest_tweets
+					   wij_latest_tweets = Twitter.user_timeline("WijTweet").first(3) 
+					   Rails.cache.write("wij_latest_tweets", wij_latest_tweets, :expires_in => 10.minutes)
+					end
+					rails_latest_tweets = Rails.cache.read "rails_latest_tweets"
+					if !rails_latest_tweets
+					   rails_latest_tweets = Twitter.user_timeline("rails").first(3) 
+					   Rails.cache.write("rails_latest_tweets", rails_latest_tweets, :expires_in => 10.minutes)
+					end
+					#cyc_latest_tweets = Rails.cache.read "cyc_latest_tweets"
+					#if !cyc_latest_tweets
+					#   cyc_latest_tweets = Twitter.user_timeline("CityofYork").first(3) 
+					#   Rails.cache.write("cyc_latest_tweets", cyc_latest_tweets, :expires_in => 10.minutes)
+					#end
+					
+					#Cache the profile image urls for WijTweet and CityofYork if not already in cache
+					wij_img_url = Rails.cache.read "wij_img_url"
+					if !wij_img_url
+					   wij_img_url = Twitter.user("WijTweet").profile_image_url 
+					   Rails.cache.write("wij_img_url", wij_img_url, :expires_in => 10.minutes)
+					end
+					rails_img_url = Rails.cache.read "rails_img_url"
+					if !rails_img_url
+					   rails_img_url = Twitter.user("rails").profile_image_url 
+					   Rails.cache.write("rails_img_url", rails_img_url, :expires_in => 10.minutes)
+					end
+					#cyc_img_url = Rails.cache.read "cyc_img_url"
+					#if !cyc_img_url
+					#   cyc_img_url = Twitter.user("CityofYork").profile_image_url 
+					#   Rails.cache.write("cyc_img_url", cyc_img_url, :expires_in => 10.minutes)
+					#end
+				%>
+				<h3><a href="https://twitter.com/#!/WijTweet">Richard Wharram on Twitter</a></h3>
+				<table>
+					<% wij_latest_tweets.each do |tweet| %>	
+						<tr>
+							<td>
+								<img src="<%= wij_img_url %>"></img>
+							</td>
+							<td>
+								<div class="tweetdiv" value="Read in Twitter" onclick="location.href='https://twitter.com/WijTweet/status/<%= tweet.id %>'">
+									<%= auto_link(tweet.text.gsub(/\n/, '<br/>')).html_safe %>
+								</div>
+							</td>
+						</tr>
+					<% end %>
+				</table>
+				<h3><a href="https://twitter.com/#!/rails">Ruby on Rails on Twitter</a></h3>
+				<table>
+					<% rails_latest_tweets.each do |tweet| %>	
+						<tr>
+							<td>
+								<img src="<%= rails_img_url %>"></img>
+							</td>
+							<td>
+								<div class="tweetdiv" value="Read in Twitter" onclick="location.href='https://twitter.com/rails/status/<%= tweet.id %>'">
+									<%= auto_link(tweet.text.gsub(/\n/, '<br/>')).html_safe %>
+								</div>
+							</td>
+						</tr>
+					<% end %>
+				</table>
+				<div>
+					<%= Twitter.rate_limit_status.remaining_hits.to_s + " API request(s) remaining this hour" %>
+				</div>
+            </div>
+            <div id="footer">
+                <asp:ContentPlaceHolder ID="FooterContent" runat="server" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

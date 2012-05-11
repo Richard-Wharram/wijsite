@@ -1,0 +1,12 @@
+<% provide(:title, @news_item.title + ' | ') %>
+
+<h1><%= @news_item.title %></h1>
+<h3><%= link_to 'Home', root_path %> >> <%= link_to 'Latest news', news_items_path %> >> <a href="/news_items/<%= @news_item.id %>-<%= @news_item.title.parameterize %>"><%= @news_item.title %></a></h3>
+
+<p id="notice"><%= notice %></p>
+
+<h5> By: <%= @news_item.author %> | Created: <%= @news_item.timestamp %></h5>
+<p><%= @news_item.content.gsub(/\n/, '<br/>').html_safe %></p>
+
+<%= link_to 'Edit', edit_news_item_path(@news_item) %> |
+<%= link_to 'Back', news_items_path %>

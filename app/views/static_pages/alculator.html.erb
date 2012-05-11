@@ -1,0 +1,173 @@
+﻿<% provide(:title, 'Alculator | ') %>
+
+<h1>Alculator</h1>
+<h3><%= link_to 'Home', root_path %> >> <%= link_to 'Alculator', alculator_path %></h3>
+
+<style>
+.alculateAction
+{
+	padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #ddd;
+    color: #034af3;
+	font-size: 1.1em;
+	-moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    /*border-radius: 7px;*/
+}	
+.alculateAction:hover
+{
+    background-color: #bbbbbb;
+    text-decoration: none;
+}
+
+.alculateAction:active
+{
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+.alculateAction.selected a
+{
+    background-color: #fff;
+    color: #000;
+}
+</style>
+<script type="text/javascript">
+function alculateAction() 
+{
+	// Get all the values from the input fields
+	var number = $("#noOfContainers").val();
+	var mls = $("#containerCapacity").val();
+	var abv = $("#aBV").val();
+	var price = $("#price").val();
+	
+	// Default all the error texts to be hidden
+	$("#noOfContainersError").animate({
+	  opacity: 0
+	}, 0);
+	$("#containerCapacityError").animate({
+	  opacity: 0
+	}, 0);
+	$("#aBVError").animate({
+	  opacity: 0
+	}, 0);
+	$("#priceError").animate({
+	  opacity: 0
+	}, 0);
+	
+	// Check for errors and fade in the error texts where appropriate
+	var valid = true;
+	if (!(number > 0))
+	{
+		$("#noOfContainersError").animate({
+		  opacity: 1
+		}, 600);
+		valid = false;
+	}
+	if (!(mls > 0))
+	{
+		$("#containerCapacityError").animate({
+		  opacity: 1
+		}, 600);
+		valid = false;
+	}
+	if (!(abv > 0))
+	{
+		$("#aBVError").animate({
+		  opacity: 1
+		}, 600);
+		valid = false;
+	}
+	if (!(price > 0))
+	{
+		$("#priceError").animate({
+		  opacity: 1
+		}, 600);
+		valid = false;
+	}
+	
+	// If no errors were found then call the calculation function
+	var mls_of_alcohol = 0;
+	var no_of_units = 0;
+	var price_per_unit = 0;
+	if (valid)
+	{
+		mls_of_alcohol = alculateMlsOfAlcohol(number, mls, abv, price);
+		no_of_units = alculateNoOfUnits(number, mls, abv, price);
+		price_per_unit = alculatePricePerUnit(number, mls, abv, price);
+	}
+	
+	// Update the results table
+	$("#mlsOfAlcohol").text(mls_of_alcohol);
+	$("#mlsOfAlcohol").animate({
+	  opacity: 1
+	}, 600);
+	$("#noOfUnits").text(no_of_units);
+	$("#noOfUnits").animate({
+	  opacity: 1
+	}, 600);
+	$("#pricePerUnit").text(price_per_unit);
+	$("#pricePerUnit").animate({
+	  opacity: 1
+	}, 600);
+	
+	return true;
+}
+function alculateMlsOfAlcohol(number, mls, abv, price) 
+{
+	// Calculate the derived values
+	return number * mls * (abv / 100);
+}
+function alculateNoOfUnits(number, mls, abv, price) 
+{
+	// Calculate the derived values
+	return  (number * mls * (abv / 100)) / 10;
+}
+function alculatePricePerUnit(number, mls, abv, price) 
+{
+	// Calculate the derived values
+	return  price / ((number * mls * (abv / 100)) / 10);
+}
+</script>
+
+<table>
+	<tr>
+		<td>No. of containers</td>
+		<td> <input type="text" id="noOfContainers"> </td>
+		<td id="noOfContainersError" style="opacity: 0;">Please enter numeric value</td>
+	</tr>
+	<tr>
+		<td>Container capacity (ml)</td>
+		<td> <input type="text" id="containerCapacity"> </td>
+		<td id="containerCapacityError" style="opacity: 0;">Please enter numeric value</td>
+	</tr>
+	<tr>
+		<td>AbV (%)</td>
+		<td> <input type="text" id="aBV"> </td>
+		<td id="aBVError" style="opacity: 0;">Please enter numeric value</td>
+	</tr>
+	<tr>
+		<td>Price (#0.00p)</td>
+		<td> <input type="text" id="price"> </td>
+		<td id="priceError" style="opacity: 0;">Please enter numeric value</td>
+	</tr>
+</table>
+<div class="alculateAction" id="alculateAction" style="cursor: pointer;" onclick="alculateAction()">Alculate</div> 
+<table>
+	<tr>
+		<td>mls of alcohol</td>
+		<td id="mlsOfAlcohol" style="opacity: 0;">...</td>
+	</tr>
+	<tr>
+		<td>Number of units</td>
+		<td id="noOfUnits" style="opacity: 0;">...</td>
+	</tr>
+	<tr>
+		<td>Price per unit (#0.00p)</td>
+		<td id="pricePerUnit" style="opacity: 0;">...</td>
+	</tr>
+</table>
