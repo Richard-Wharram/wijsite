@@ -1,4 +1,6 @@
 <% provide(:title, 'News | ') %>
+<h1>Latest news</h1>
+<h3><%= link_to 'Home', root_path %> >> <%= link_to 'Latest news', news_items_path %></h3>
 
 <style>
 
@@ -105,9 +107,6 @@ function toggleAndSlide(elemId, duration)
 }
 </script>
 
-<h1>The latest news</h1>
-<h3><%= link_to 'Home', root_path %> >> <%= link_to 'Latest news', news_items_path %></h3>
-
 <% @news_items.each do |news_item| %>
 	<span style="text-decoration: none" >
 		<div class="news_item_container" id="news-item-container-<%= news_item.id %>" style="cursor: pointer;" value="<%= news_item.title %>" onclick="location.href='/news_items/<%= news_item.id %>-<%= news_item.title.parameterize %>'">
@@ -119,7 +118,7 @@ function toggleAndSlide(elemId, duration)
 	
 	<div class="options-container">
         <ul class="options">
-			<li class="slide" id="slide-<%= news_item.id %>" style="cursor: pointer;" onclick="toggleAndSlide('<%= news_item.id %>', 700)">Show/Hide</li>
+			<li class="slide" id="slide-<%= news_item.id %>" style="cursor: pointer;" onclick="toggleAndSlide('<%= news_item.id %>', 700)">More/Less</li>
 			<li><%= link_to 'Show', news_item %></li>
 			<li><%= link_to 'Edit', edit_news_item_path(news_item) %></li>
 			<li><%= link_to 'Destroy', news_item, confirm: 'Are you sure?', method: :delete %></li>

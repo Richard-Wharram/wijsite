@@ -1,3 +1,8 @@
+/*
+ ****************************************************************************
+ * The body
+ ****************************************************************************
+ */
 body
 {
     /* background: #ffffff;  for non-css3 browsers */
@@ -6,7 +11,7 @@ body
     /*background: -webkit-gradient(linear, left top, left bottom, from(#880000), to(#ff383a)); /* for webkit browsers */
     /*background: -moz-linear-gradient(top,  #880000,  #ff383a); /* for firefox 3.6+ */ 
     /*background-repeat:no-repeat;*/
-    font-size: .75em;
+    font-size: .85em;
     font-family: 'Ubuntu',
 				 Verdana,
                  "Verdana Ref",
@@ -16,38 +21,14 @@ body
                  sans-serif;
     margin: 0;
     padding: 0;
-    color: #696969;
+    color: #333;
 }
 
-/* THE HEADER */
-.cycheader
-{
-	height: 120px;
-	margin: 5px 0;
-	padding: 7px;
-	background: #ffffff;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#880000', endColorstr='#ff383a'); /* for IE */
-    background: -webkit-gradient(linear, left top, left bottom, from(#880000), to(#ff383a)); /* for webkit browsers */
-    background: -moz-linear-gradient(top,  #880000,  #ff383a); /* for firefox 3.6+ */ 
-    background-repeat:no-repeat;
-	-moz-border-radius: 7px;
-    -webkit-border-radius: 7px;
-    -khtml-border-radius: 7px;
-    border-radius: 7px;
-}
-.cycheader p
-{
-	font-size: 1em;
-	color: #ffffff;
-}
-.cycheader p, ul
-{
-    margin-bottom: 20px;
-    line-height: 1.6em;
-}
-
-/* HEADINGS   
-----------------------------------------------------------*/
+/*
+ ****************************************************************************
+ * Headings
+ ****************************************************************************
+ */
 h1, h2, h3, h4, h5, h6
 {
     font-size: 1.5em;
@@ -86,27 +67,32 @@ h6
 {
     font-size: 1em;
     font-style: italic;
-    font-weight:lighter
+    font-weight:lighter;
 }
 
-/* PRIMARY LAYOUT ELEMENTS   
-----------------------------------------------------------*/
-.page
-{
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-#header
+/*
+ ****************************************************************************
+ * Other primary layout elements, header, sidebar, footer, main etc...
+ ****************************************************************************
+ */
+.wijheader
 {
     position: relative;
+	height: 120px;
+	margin: 5px 0;
     margin-bottom: 0px;
-    color: #000;
     padding: 0;
+	background: #ffffff;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#880000', endColorstr='#ff383a'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#880000), to(#ff383a)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #880000,  #ff383a); /* for firefox 3.6+ */ 
+    background-repeat:no-repeat;
+	-moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    border-radius: 7px;
 }
-
-#header h1
+.wijheader h1
 {
     font-weight: bold;
     padding: 5px 0;
@@ -124,16 +110,37 @@ h6
                  sans-serif;
     font-size: 32px !important;
 }
-
-
-#body
+.wijheader p
 {
-    /* background-color: #ffffff; */
+	font-size: 1em;
+	color: #ffffff;
+}
+.wijheader p, ul
+{
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+.title
+{
+    display:block;
+    float:left;
+    text-align:left;
+}
+
+.page
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body
+{
+    background-color: #ffffff;
     /*margin-bottom: 30px;*/
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
 }
 
-#wrap
+.wrap
 {
     width: 1200px;
     margin: 0 auto;
@@ -141,7 +148,7 @@ h6
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
 }
 
-#main
+.main
 {
     width: 874px;
     background-color: #ffffff;
@@ -154,9 +161,10 @@ h6
     -khtml-border-radius: 7px;
 	border: 3px solid #c3c4eb;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+
 }
 
-#sidebar
+.sidebar
 {
     width: 290px;
     background-color: #eeeeee;
@@ -167,12 +175,12 @@ h6
     -webkit-border-radius: 7px;
     -khtml-border-radius: 7px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f9f9f9'); /* for IE */
-    background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#f9f9f9)); /* for webkit browsers */
-    background: -moz-linear-gradient(top,  #eeeeee,  #f9f9f9); /* for firefox 3.6+ */ 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#fdfdfd'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#fdfdfd)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #f4f4f4,  #fdfdfd); /* for firefox 3.6+ */ 
 }
 
-#footer
+.footer
 {
     clear:both;
     color: #999;
@@ -182,6 +190,11 @@ h6
     font-size: .9em;
 }
 
+/*
+ ****************************************************************************
+ * Tiling for the home screen
+ ****************************************************************************
+ */
 .home-block
 {
 	height: 160px;
@@ -198,7 +211,6 @@ h6
     -khtml-border-radius: 7px;
     border-radius: 7px;*/
 }
-
 .home-block:hover
 {
     background-color: #beb;
@@ -210,9 +222,11 @@ h6
 	border-style: hidden;
 }
 
-
-/* TAB MENU   
----------------------------------------------------------- */
+/*
+ ****************************************************************************
+ * Tab menu - THIS NEEDS TIDYING. IT'S BADLY CODED.
+ ****************************************************************************
+ */
 ul#menu
 {
     border-bottom: 1px #ffffff solid;
@@ -221,13 +235,11 @@ ul#menu
     margin: 10px;
     text-align: right;
 }
-
 ul#menu li
 {
     display: inline;
     list-style: none;
 }
-
 ul#menu li#greeting
 {
     padding: 10px 20px;
@@ -236,7 +248,6 @@ ul#menu li#greeting
     line-height: 2.8em;
     color: #fff;
 }
-
 ul#menu li a
 {
     padding: 10px 20px;
@@ -251,27 +262,27 @@ ul#menu li a
     -khtml-border-radius: 7px;
     /*border-radius: 7px;*/
 }
-
 ul#menu li a:hover
 {
     background-color: #bbbbbb;
     text-decoration: none;
 }
-
 ul#menu li a:active
 {
     background-color: #a6e2a6;
     text-decoration: none;
 }
-
 ul#menu li.selected a
 {
     background-color: #fff;
     color: #000;
 }
 
-/* NEWS ITEMS OPTIONS   
----------------------------------------------------------- */
+/*
+ ****************************************************************************
+ * Options under the news items
+ ****************************************************************************
+ */
 .options-container
 {
 
@@ -284,14 +295,11 @@ ul#menu li.selected a
     margin: 10px;
     text-align: right;
 }
-
-
 .options li
 {
     display: inline;
     list-style: none;
 }
-
 .options li a
 {
     padding: 10px 20px;
@@ -306,35 +314,40 @@ ul#menu li.selected a
     -khtml-border-radius: 7px;
     /*border-radius: 7px;*/
 }
-
 .options li a:hover
 {
     background-color: #bbbbbb;
     text-decoration: none;
 }
-
 .options li a:active
 {
     background-color: #a6e2a6;
     text-decoration: none;
 }
-
 .options li.selected a
 {
     background-color: #fff;
     color: #000;
 }
 
-/* FORM LAYOUT ELEMENTS   
-----------------------------------------------------------*/
+/*
+ ****************************************************************************
+ * Default text input field
+ ****************************************************************************
+ */
+input[type="text"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
 
+/* FORM LAYOUT ELEMENTS   
 fieldset 
 {
     margin: 1em 0;
     padding: 1em;
     border: 1px solid #CCC;
 }
-
 fieldset p 
 {
     margin: 2px 12px 10px 10px;
@@ -347,42 +360,41 @@ legend
     padding: 2px 4px 8px 4px;
 }
 
-input[type="text"] 
-{
-    width: 200px;
-    border: 1px solid #CCC;
-}
-
 input[type="password"] 
 {
     width: 200px;
     border: 1px solid #CCC;
 }
-
-/* TABLE
 ----------------------------------------------------------*/
 
+/*
+ ****************************************************************************
+ * Default table styling
+ ****************************************************************************
+ */
 table 
 {
-  border: solid 1px #e8eef4;
-  border-collapse: collapse;
+	border: solid 1px #e8eef4;
+	border-collapse: collapse;
 }
-
 table td 
 {
-  padding: 5px;   
-  border: solid 1px #e8eef4;
+	padding: 5px;   
+	border: solid 1px #e8eef4;
 }
-
 table th
 {
-  padding: 6px 5px;
-  text-align: left;
-  background-color: #e8eef4; 
-  border: solid 1px #e8eef4;   
+	padding: 6px 5px;
+	text-align: left;
+	background-color: #e8eef4; 
+	border: solid 1px #e8eef4;   
 }
 
-/* FANCY CLICKABLE NEWS ITEMS */
+/*
+ ****************************************************************************
+ * Clickable news items
+ ****************************************************************************
+ */
 .news_item_container
 {
     text-decoration: none !important;
@@ -410,15 +422,7 @@ table th
 }
 .news_view
 {
-    text-decoration: none !important;
-}
-.news_view > a
-{
-    text-decoration: none !important;
-}
-.news_view > p
-{
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 /* MISC  
@@ -433,20 +437,12 @@ table th
     color:Red;
 }
 
-#menucontainer
+.menucontainer
 {
     margin-top:40px;
 }
 
-div#title
-{
-    display:block;
-    float:left;
-    text-align:left;
-}
-
-
-#logindisplay
+.logindisplay
 {
     font-size:1.1em;
     display:block;
@@ -455,17 +451,17 @@ div#title
     color:White;
 }
 /*
-#logindisplay a:link
+.logindisplay a:link
 {
     color: white;
     text-decoration: underline;
 }
-#logindisplay a:visited
+.logindisplay a:visited
 {
     color: white;
     text-decoration: underline;
 }
-#logindisplay a:hover
+.logindisplay a:hover
 {
     color: white;
     text-decoration: none;
@@ -473,38 +469,31 @@ div#title
 */
 
 /* Styles for validation helpers
------------------------------------------------------------*/
-/*
 .field-validation-error
 {
     color: #ff0000;
 }
-
 .field-validation-valid
 {
     display: none;
 }
-
 .input-validation-error
 {
     border: 1px solid #ff0000;
     background-color: #ffeeee;
 }
-
 .validation-summary-errors
 {
     font-weight: bold;
     color: #ff0000;
 }
-
 .validation-summary-valid
 {
     display: none;
 }
-*/
+-----------------------------------------------------------*/
 
 /* Styles for editor and display helpers
-----------------------------------------------------------*/
 .display-label,
 .editor-label,
 .display-field,
@@ -527,7 +516,13 @@ div#title
 {
     width: 6em;
 }
+----------------------------------------------------------*/
 
+/*
+ ****************************************************************************
+ * Tweet styling for the Twitter sidebar
+ ****************************************************************************
+ */
 .tweetdiv
 {
 	cursor: pointer;

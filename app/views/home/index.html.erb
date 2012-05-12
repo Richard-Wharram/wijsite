@@ -6,7 +6,7 @@
 <table class="home-table">
 	<tr>
 		<td>
-			<div class="home-block" onclick="location.href='/news_items/'">
+			<div class="home-block" onclick="location.href='/news_items'">
 				<h2>Latest News</h2>
 				<% @news_items.each do |news_item| %>
 					<div><a href="/news_items/<%= news_item.id %>-<%= news_item.title.parameterize %>"><%= news_item.title %></a></div>
@@ -14,7 +14,7 @@
 			</div>
 		</td>
 		<td>
-			<div class="home-block" onclick="location.href='/posts/'">
+			<div class="home-block" onclick="location.href='/posts'">
 				<h2>Latest Blog entries</h2>
 				<% @posts.each do |post| %>
 					<div><a href="/posts/<%= post.id %>-<%= post.name.parameterize %>"><%= post.name %></a></div>
@@ -22,23 +22,25 @@
 			</div>
 		</td>
 		<td>
-			<div class="home-block" onclick="location.href='http://forums.freddyshouse.com/'">
+			<div style="color: #ffffff;">
+				abcdefg<img src="/assets/big-rails-logo.png" width="176" height="176"></img>
 			</div>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<div class="home-block" onclick="location.href='http://forums.freddyshouse.com/'">
+			<div style="color: #ffffff;">
+				abcdefg<img src="/assets/big-rails-logo.png" width="176" height="176"></img>
 			</div>
 		</td>
 		<td>
-			<div class="home-block" onclick="location.href='/about/'">
+			<div class="home-block" onclick="location.href='/about'">
 				<h2>About this site</h2>
 				<p>This humble site is the work of me, Richard Wharram. Yorkshire IT professional, family man, cube enthusiast and amateur analyitcal philosopher. Find out more.</p>
 			</div>
 		</td>
 		<td>
-			<div class="home-block" onclick="location.href='/alculator/'">
+			<div class="home-block" onclick="location.href='/alculator'">
 				<h2>The Alculator</h2>
 				<p>Back in 2005 Richard Wharram and Tony Kujawiak had a great idea.</p>
 			</div>
