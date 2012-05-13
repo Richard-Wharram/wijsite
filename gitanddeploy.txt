@@ -1,0 +1,17 @@
+git checkout -b dev_branch
+git branch
+
+<change files>
+
+git status
+
+<bundle install if necessary>
+
+git commit -a -m "add pg to gemfile"
+git checkout master
+git merge dev_branch
+git push
+
+git push heroku master
+
+if needed: heroku run rake db:migrate
