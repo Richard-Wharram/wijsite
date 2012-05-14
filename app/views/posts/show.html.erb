@@ -17,7 +17,7 @@
 
 <p>
   <b>Content:</b>
-  <%= @post.content %>
+  <%= @post.content.gsub(/\n/, '<br/>').html_safe %>
 </p>
 
 
