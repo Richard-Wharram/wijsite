@@ -17,7 +17,7 @@
 			<div class="home-block" onclick="location.href='/posts'">
 				<h2>Latest Blog entries</h2>
 				<% @posts.each do |post| %>
-					<div><a href="/posts/<%= post.id %>-<%= post.name.parameterize %>"><%= post.name %></a></div>
+					<div><a href="/posts/<%= post.id %>-<%= post.title.parameterize %>"><%= post.title %></a></div>
 				<% end %>
 			</div>
 		</td>

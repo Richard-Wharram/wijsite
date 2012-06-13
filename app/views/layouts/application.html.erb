@@ -15,9 +15,12 @@
                     <h1>The World of Wijcraft</h1>
                 </div>
                 <div class="logindisplay">
-					<p>Logon</p>
+					<% if current_user %>
+						<a href='/user'>Welcome <%= current_user.name %> </a> | <a href='/logout'>Logoff</a>
+					<% else %>
+						<a href='/login'>Logon</a> | <a href='/signup'>Register</a>
+					<% end %>
                 </div> 
-            
                 <div class="menucontainer">
                     <ul id="menu">
                         <li><%= link_to "Home", root_path %></li>
@@ -27,6 +30,7 @@
                     </ul>
                 </div>
             </div>
+			<%= show_flash.html_safe %>
 
             <div class="main">
 				<%= yield %>

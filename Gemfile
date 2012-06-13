@@ -31,6 +31,8 @@ gem 'twitter', '1.7.1'
 
 gem 'rinku', '~> 1.2.2', :require => 'rails_rinku'
 
+gem 'authlogic'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

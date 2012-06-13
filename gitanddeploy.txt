@@ -1,4 +1,4 @@
-git checkout -b dev_branch
+git checkout -b dev
 git branch
 
 <change files>
@@ -9,7 +9,7 @@ git status
 
 git commit -a -m "add pg to gemfile"
 git checkout master
-git merge dev_branch
+git merge dev
 git push
 
 git push heroku master

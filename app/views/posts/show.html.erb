@@ -1,13 +1,14 @@
-<% provide(:title, @post.name + ' | ') %>
+<% provide(:title, @post.title + ' | ') %>
+<% require 'rails_rinku' %>
 
-<h1><%= @post.name %></h1>
-<h3><%= link_to 'Home', root_path %> >> <%= link_to 'Blog entries', posts_path %> >> <a href="/posts/<%= @post.id %>-<%= @post.name.parameterize %>"><%= @post.name %></a></h3>
+<h1><%= @post.title %></h1>
+<h3><%= link_to 'Home', root_path %> >> <%= link_to 'Blog entries', posts_path %> >> <a href="/posts/<%= @post.id %>-<%= @post.title.parameterize %>"><%= @post.title %></a></h3>
 
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @post.name %>
+  <b>Author:</b>
+  <%= @post.author %>
 </p>
 
 <p>
@@ -17,7 +18,7 @@
 
 <p>
   <b>Content:</b>
-  <%= @post.content.gsub(/\n/, '<br/>').html_safe %>
+  <%= auto_link(@post.content.gsub(/\n/, '<br/>')).html_safe %>
 </p>
 
 

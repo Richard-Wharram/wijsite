@@ -120,6 +120,12 @@ h6
     margin-bottom: 20px;
     line-height: 1.6em;
 }
+.wijheader a
+{
+	font-size: 1em;
+	color: #ffffff;
+}
+
 .title
 {
     display:block;
@@ -175,6 +181,7 @@ h6
 	-moz-border-radius: 7px;
     -webkit-border-radius: 7px;
     -khtml-border-radius: 7px;
+	border-radius: 7px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#fdfdfd'); /* for IE */
     background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#fdfdfd)); /* for webkit browsers */
